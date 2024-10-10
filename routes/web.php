@@ -1,8 +1,12 @@
 <?php
 
+use App\Http\Controllers\FormPeminjamanController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+
+Route::get('/', [FormPeminjamanController::class, 'index'])->name('form.index');
+Route::post('/', [FormPeminjamanController::class, 'store'])->name('form.store');
 
 Auth::routes([
     'register' => false,
