@@ -11,14 +11,13 @@ class Items extends Model
 
     protected $table = "items";
     protected  $fillable = [
-        'members_id',
         'namebarang',
-        'harga',
+        'lokasi',
         'foto',
     ];
 
-    public function members()
-    {
-        return $this->belongsTo(Members::class);
-    }
+    // public function members()
+    // {
+    //     return $this->belongsTo(Members::class);
+    // }
 }

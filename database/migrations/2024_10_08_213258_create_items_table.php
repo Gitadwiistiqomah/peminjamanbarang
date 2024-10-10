@@ -14,10 +14,9 @@ return new class extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('members_id')->references('id')->on('members')->onDelete('cascade');
             $table->string('namebarang');
-            $table->string('harga');
-            $table->text ('foto')->nullable();
+            $table->string('lokasi' , 255)->nullable();
+            $table->string ('foto' ,225)->nullable();
             $table->timestamps();
         });
     }

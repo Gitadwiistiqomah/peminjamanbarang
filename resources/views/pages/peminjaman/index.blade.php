@@ -4,15 +4,10 @@
 <div class="page-heading">
     <div class="page-title mb-3">
         <h3>
-            <span class="bi bi-building"></span>
-            Items
+            <span class="bi bi-people"></span>
+            Peminjaman
         </h3>
     </div>
-
-    <a href="{{ route('admin.items.create') }}" class="btn btn-primary mb-3">
-        <span class="bi bi-plus-circle"></span> 
-        Create New
-    </a>
 
     <section class="section">
         <div class="card">
@@ -20,29 +15,27 @@
                 <table id="datatable" class="table table-striped">
                     <thead>
                         <tr>
-                            <th> No </th>
-                            <th> Nama Barang </th>
-                            <th> Lokasi </th>
-                            <th> Foto </th>
+                            <th>No</th>
+                            <th>Nama Item</th>
+                            <th>Name</th>
+                            <th>Kelas</th>
+                            <th>Waktu Pinjam</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($items as $item)
+                        @foreach ($peminjaman as $item)
                         <tr>
-                        
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $item->namebarang }}</td>
-                            <td>{{ $item->lokasi }}</td>
-                            <td><img src="{{ asset('storage/uploads/peminjamanbarang/' . $item->foto) }}" width="100" alt=""></td>
+                            <td>{{ $item->item_id }}</td>
+                            <td>{{ $item->name }}</td>
+                            <td>{{ $item->kelas }}</td>
+                            <td>{{ $item->waktu_peminjaman }}</td>
                             <td>
-                                <a href="{{ route('admin.items.show', $item->id) }}" class="btn btn-outline-secondary btn-sm me-1">
+                                <a href="{{ route('admin.peminjaman.show', $item->id) }}" class="btn btn-outline-secondary btn-sm me-1">
                                     <span class="bi bi-eye">Show</span>
                                 </a>
-                                <a href="{{ route('admin.items.edit', $item->id) }}" class="btn btn-secondary btn-sm me-1">
-                                    <span class="bi bi-pencil">Edit</span>
-                                </a> 
-                                <a href="#" class="btn btn-danger btn-sm me-1" onclick="handleDestroy(`{{ route ('admin.items.destroy', $item->id) }}`)">
+                                <a href="#" class="btn btn-danger btn-sm me-1" onclick="handleDestroy(`{{ route ('admin.peminjaman.destroy', $item->id) }}`)">
                                     <span class="bi bi-trash">Hapus</span>
                                 </a>
                             </td>

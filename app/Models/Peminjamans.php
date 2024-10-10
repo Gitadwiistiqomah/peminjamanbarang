@@ -5,26 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Transaksi extends Model
+class Peminjamans extends Model
 {
     use HasFactory;
-
+    
+    protected $table = 'peminjaman';
     protected  $fillable = [
-        'user_id',
         'item_id',
         'name',
-        'no_hp',
-        'alamat',
-        'tanggal_peminjaman',
-        'lama_peminjaman',
-        'total',
+        'kelas',
+        'waktu_peminjaman',
+        'waktu_kembali',
+        'total_pinjam',
         'status', 
      ];
-     public function user()
-     {
-         return $this->belongsTo(User::class);
-     }
-     
+
     public function item()
     {
         return $this->belongsTo(Items::class);

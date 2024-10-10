@@ -38,5 +38,7 @@ Route::put ('/items/{id}', [App\Http\Controllers\ItemsController::class, 'update
 Route::delete ('/items/{id}', [App\Http\Controllers\ItemsController::class, 'destroy'])->name('items.destroy') ;
 Route::get ('/items/{id}', [App\Http\Controllers\ItemsController::class, 'show'])->name('items.show') ;
 
+Route::resource('/peminjaman', App\Http\Controllers\PeminjamanController::class)->only(['index', 'show', 'destroy']);
+
 });
 

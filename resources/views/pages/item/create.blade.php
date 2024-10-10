@@ -12,10 +12,10 @@
     <section class="section">
         <div class="card">
             <div class="card-body">
-                <form action="{{route('admin.items.store') }}" method="POST">
+                <form action="{{route ('admin.items.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
-                <div class="mb-3">
+                {{-- <div class="mb-3">
                     <label for="members_id" class="form-label">Nama Member</label>
                     <select name="members_id" id="members_id" class="form-control">
                          <option>pilih member</option>
@@ -23,7 +23,7 @@
                                 <option value="{{ $item->id }}">{{ $item->member }}</option>
                             @endforeach
                     </select>
-                </div>  
+                </div>   --}}
 
                 <div class="form-group mb-2">
                     <label for="namebarang" class="form-lable"> Nama Barang <span class="text-danger">*</span></label>
@@ -35,10 +35,10 @@
                 </div>
 
                 <div class="form-group mb-2">
-                    <label for="harga" class="form-lable"> Harga <span class="text-danger">*</span></label>
-                    <input type="number" name="harga" id="harga" value="{{ old('harga') }}" class="form-control @error('harga') is-invalid  @enderror" />
+                    <label for="lokasi" class="form-lable"> Lokasi <span class="text-danger">*</span></label>
+                    <input type="text" name="lokasi" id="lokasi" value="{{ old('lokasi') }}" class="form-control @error('lokasi') is-invalid  @enderror" />
     
-                    @error('harga') 
+                    @error('lokasi') 
                         <div class="invalid-feedback d-block">{{ $message }}</div>
                     @enderror
                 </div>

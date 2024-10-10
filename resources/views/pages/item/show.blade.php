@@ -18,27 +18,27 @@
                     <th>Id</th> 
                     <td><strong>#{{ $items->id }}</strong></td>
                 </tr>
-                <tr>
+                {{-- <tr>
                     <th>Nama Member</th> 
                     <td>{{ $items->members_id }}</td>
-                </tr>
+                </tr> --}}
                 <tr>
                     <td>Nama Barang </td>
                     <td>{{ $items->namebarang }}</td>
                 </tr>
                 <tr>
-                    <td>Harga</td>
-                    <td>{{ $items->harga }}</td>
+                    <td>Lokasi</td>
+                    <td>{{ $items->lokasi }}</td>
                 </tr>
                 <tr>
                     <td>Foto</td>
                     <td>
-                   <img src="{{ asset('storage/uploads/items/'.$items->foto) }}"  width="100" alt=""/>
+                   <img src="{{ asset('storage/uploads/peminjamanbarang/'.$items->foto) }}"  width="100" alt=""/>
                     </td>
                 </tr>
                 <tr>
                     <td>Created At</td>
-                    <td>{{ Carbon\Carbon::parse($items->created_at )->isoFormat('DD MMM Y HH:mm')}}</td>
+                    <td>{{ Carbon\Carbon::parse($items->created_at )->isoFormat('DD MMM Y HH:mm') }}</td>
                 </tr>
                 <tr>
                     <td>Update At</td>

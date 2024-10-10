@@ -37,6 +37,14 @@
         </a>
     </li>
 
+    <li
+        class="sidebar-item  ">
+        <a href="{{ route('admin.peminjaman.index') }}" class='sidebar-link'>
+            <i class="bi bi-building"></i>
+            <span>Peminjaman</span>
+        </a>
+    </li>
+
 
 </ul>
 </div>
