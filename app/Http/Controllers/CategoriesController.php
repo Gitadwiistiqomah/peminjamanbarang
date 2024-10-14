@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Members;
+use App\Models\Categories;
 use Illuminate\Http\Request;
 
-class MembersController extends Controller
+class CategoriesController extends Controller
 {
     public function index()
     {
-        $members = Members::all(); // Mengambil semua data members dari database
-     return view('pages.members.index', compact('members'));
+        $categories = Categories::all(); // Mengambil semua data members dari database
+     return view ('pages.categories.index', compact('categories'));
     }
 
     /**
@@ -18,7 +18,7 @@ class MembersController extends Controller
      */
     public function create()
     {
-        return view('pages.members.create');
+        return view('pages.categories.create');
     }
 
     /**
@@ -33,8 +33,8 @@ class MembersController extends Controller
             
         ]);
 
-       $members = Members::create($request->all());
-       return redirect()->route('admin.members.index'); 
+       $categories = Categories::create($request->all());
+       return redirect()->route('admin.categories.index'); 
        // return "Proses simpan";
     }
     
@@ -44,8 +44,8 @@ class MembersController extends Controller
      */
     public function show(string $id)
     {
-        $members = Members::find($id); //SELECT * FROM siswa Where id = $id
-        return view('pages.members.show', compact ('members'));
+        $categories = Categories::find($id); //SELECT * FROM siswa Where id = $id
+        return view('pages.categories.show', compact ('categories'));
     }
 
     /**
@@ -53,8 +53,8 @@ class MembersController extends Controller
      */
     public function edit(string $id)
     {
-        $members = Members::find($id);
-        return view('pages.members.edit', compact ('members'));
+        $categories = Categories::find($id);
+        return view('pages.categories.edit', compact ('categories'));
     }
 
     /**
@@ -69,9 +69,9 @@ class MembersController extends Controller
             
         ]);
 
-        $membres = Members::find($id);
-        $membres->update($request->all());
-        return redirect()->route('admin.members.index');
+        $categories = Categories::find($id);
+        $categories->update($request->all());
+        return redirect()->route('admin.categories.index');
     }
     
 
@@ -80,9 +80,8 @@ class MembersController extends Controller
      */
     public function destroy(string $id)
     {
-        $membres = Members::find($id);
-        $membres->delete();
-        return redirect()->route('admin.membres.index');
+        $categories = Categories::find($id);
+        $categories->delete();
+        return redirect()->route('admin.categories.index');
     }
 }
-

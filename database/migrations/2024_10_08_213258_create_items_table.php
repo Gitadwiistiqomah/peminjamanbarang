@@ -16,7 +16,6 @@ return new class extends Migration
             $table->id();
             $table->string('namebarang');
             $table->string('lokasi' , 255)->nullable();
-            $table->string ('foto' ,225)->nullable();
             $table->timestamps();
         });
     }

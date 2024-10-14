@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Items;
-use App\Models\Members;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -11,15 +10,8 @@ class ItemsController extends Controller
 {
     public function index()
     {
-
-        // $items = Items::select('items.*', 'members.nama as nama_members')
-        // ->join('members', 'items.members_id', '=', 'members.id')
-        // ->get();
-        // return view('pages.item.index', compact('items'));
         $items = Items::all();
         return view('pages.item.index', compact('items'));
-
-    
     }
 
     /**
@@ -27,8 +19,6 @@ class ItemsController extends Controller
      */
     public function create()
     {
-        // $members = Members::all();
-        // return view('pages.item.create', compact('members'));
          return view('pages.item.create');
     }
 
@@ -38,42 +28,43 @@ class ItemsController extends Controller
     public function store(Request $request)
     {
 
-        $request->validate([
-            'namebarang' => 'required',
-            'lokasi'=> 'required',
-            'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            // 'foto' => 'required|mimes:jpeg,png,jpg,gif,svg|max:6048',
+        // $request->validate([
+        //     'namebarang' => 'required',
+        //     'lokasi'=> 'required',
+        //     // 'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        //     // 'foto' => 'required|mimes:jpeg,png,jpg,gif,svg|max:6048',
            
+        // ], [
+        //     'namebarang.required' => 'namebarang harus diisi.',
+        //     'lokasi.required' => 'lokasi harus diisi', 
+        // ]);
+
+        // $imageName = time(). '.' .$request->foto->extension();
+        // Storage::putFileAs(
+        //     'public/uploads/peminjamanbarang', 
+        //     $request->foto, 
+        //     $imageName
+        // );
+        // $items = Items::create([
+        //     'namebarang'=> $request->namebarang,
+        //     'lokasi'=> $request->lokasi,
+        //     'foto'=> $imageName,
+            
+        // ]);
+
+        // return redirect()->route('admin.items.index');
+         $request->validate([
+             'namebarang' => 'required',
+             'lokasi'=> 'required',
         ], [
-            'namebarang.required' => 'namebarang harus diisi.',
-            'lokasi.required' => 'lokasi harus diisi', 
-        ]);
-
-        $imageName = time(). '.' .$request->foto->extension();
-        Storage::putFileAs(
-            'public/uploads/peminjamanbarang', 
-            $request->foto, 
-            $imageName
-        );
-        $items = Items::create([
-            'namebarang'=> $request->namebarang,
-            'lokasi'=> $request->lokasi,
-            'foto'=> $imageName,
-            
-        ]);
-
-        return redirect()->route('admin.items.index');
-    //     $request->validate([
-    //         'name' => 'required|max:128',
-    //     ], [
-    //         'name.required' => 'Name harus diisi.',
-            
-    //     ]);
+             'namebarang.required' => 'namebarang harus diisi.',
+             'lokasi.required' => 'lokasi harus diisi',  
+         ]);
 
         
-    //    $items = Items::create ($request->all());
-    //    return redirect()->route('admin.items.index'); 
-    //    // return "Proses simpan";
+        $items = Items::create ($request->all());
+        return redirect()->route('admin.items.index'); 
+        // return "Proses simpan";
     }
     
 
@@ -83,8 +74,6 @@ class ItemsController extends Controller
     public function show(string $id)
     {
 
-        // $items = Items::with('members')->findOrFail($id);
-        // return view('pages.item.show', compact('items'));
          $items = Items::find($id); //SELECT * FROM siswa Where id = $id
          return view('pages.item.show', compact ('items'));
     }
@@ -104,44 +93,44 @@ class ItemsController extends Controller
     public function update(Request $request, string $id)
     {
 
-        $request->validate([
-            'namebarang' => 'required',
-            'lokasi'=> 'required',
-            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            // 'foto' => 'required|mimes:jpeg,png,jpg,gif,svg|max:6048',
-        ]);
-
-        $items = Items::find($id);
-
-        if($request->has('foto')){
-            //upload Cover
-            $imageName = time(). '.' .$request->foto->extension();
-            Storage::putFileAs(
-                'public/uploads/peminjamanbarang', //lokasi upload file
-                $request->foto, //input file dari form
-                $imageName
-            );
-
-        }else{
-            $imageName = $items->foto;
-        }
-
-        $items->namebarang = $request->namebarang;
-        $items->lokasi = $request->lokasi;
-        $items->foto = $imageName;
-        $items->save();
-
-        return redirect()->route('admin.items.index');
         // $request->validate([
-        //     'name' => 'required|max:128',
-        // ], [
-        //     'name.required' => 'Name harus diisi.',
-            
+        //     'namebarang' => 'required',
+        //     'lokasi'=> 'required',
+        //     'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        //     // 'foto' => 'required|mimes:jpeg,png,jpg,gif,svg|max:6048',
         // ]);
 
         // $items = Items::find($id);
-        // $items->update($request->all());
+
+        // if($request->has('foto')){
+        //     //upload Cover
+        //     $imageName = time(). '.' .$request->foto->extension();
+        //     Storage::putFileAs(
+        //         'public/uploads/peminjamanbarang', //lokasi upload file
+        //         $request->foto, //input file dari form
+        //         $imageName
+        //     );
+
+        // }else{
+        //     $imageName = $items->foto;
+        // }
+
+        // $items->namebarang = $request->namebarang;
+        // $items->lokasi = $request->lokasi;
+        // $items->foto = $imageName;
+        // $items->save();
         // return redirect()->route('admin.items.index');
+        
+         $request->validate([
+             'name' => 'required|max:128',
+         ], [
+             'name.required' => 'Name harus diisi.',
+            
+         ]);
+
+         $items = Items::find($id);
+         $items->update($request->all());
+         return redirect()->route('admin.items.index');
     }
     
 

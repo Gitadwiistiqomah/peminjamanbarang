@@ -12,7 +12,7 @@
     <section class="section">
         <div class="card">
             <div class="card-body">
-                <form action="{{ route('admin.items.update', $items->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.items.update', $items->id) }}" method="POST">
                     @csrf
                     @method('PUT')
                     {{-- <div class="mb-3">
@@ -43,7 +43,7 @@
                         @enderror
                     </div>
 
-                    <div class="form-group mb-2">
+                    {{-- <div class="form-group mb-2">
                         <label for="foto" class="form-lable"> Foto <span class="text-danger">*</span></label>
                         <input type="file" name="foto" id="foto" value="{{ ($items->foto) }}" class="form-control  @error('foto') is-invalid  @enderror"/>
                         <img src="{{ asset('storage/uploads/peminjamanbarang/'. $items->foto) }}" alt="" width="100" height="100">
@@ -51,7 +51,7 @@
                         @error('foto') 
                             <div class="invalid-feedback d-block">{{ $message }}</div>
                         @enderror
-                    </div>
+                    </div> --}}
 
                     
                         <button type="submit" class="btn btn-primary"> Simpan </button>

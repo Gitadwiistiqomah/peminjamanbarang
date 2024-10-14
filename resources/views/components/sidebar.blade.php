@@ -23,9 +23,9 @@
 
     <li
         class="sidebar-item  ">
-        <a href="{{ route('admin.members.index') }}" class='sidebar-link'>
+        <a href="{{ route('admin.categories.index') }}" class='sidebar-link'>
             <i class="bi bi-building"></i>
-            <span> Members </span>
+            <span> Categories </span>
         </a>
     </li>
     

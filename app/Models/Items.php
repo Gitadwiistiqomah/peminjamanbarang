@@ -13,7 +13,6 @@ class Items extends Model
     protected  $fillable = [
         'namebarang',
         'lokasi',
-        'foto',
     ];
 
     // public function members()

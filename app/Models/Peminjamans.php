@@ -11,18 +11,23 @@ class Peminjamans extends Model
     
     protected $table = 'peminjaman';
     protected  $fillable = [
-        'item_id',
+        'items_id',
+        'categories_id',
         'name',
         'kelas',
         'waktu_peminjaman',
         'waktu_kembali',
-        'total_pinjam',
         'status', 
      ];
 
-    public function item()
+    public function items()
     {
         return $this->belongsTo(Items::class);
+    }
+
+    public function categories()
+    {
+        return $this->belongsTo(Categories::class);
     }
 
 

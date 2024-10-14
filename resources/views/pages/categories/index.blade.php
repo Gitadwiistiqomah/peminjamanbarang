@@ -5,11 +5,11 @@
     <div class="page-title mb-3">
         <h3>
             <span class="bi bi-building"></span>
-            Members
+            Categories
         </h3>
     </div>
 
-    <a href="{{ route('admin.members.create') }}" class="btn btn-primary mb-3">
+    <a href="{{ route('admin.categories.create') }}" class="btn btn-primary mb-3">
         <span class="bi bi-plus-circle"></span> 
         Create New
     </a>
@@ -22,34 +22,22 @@
                         <tr>
                             <th> No </th>
                             <th> Name </th>
-                            <th> Email </th>
-                            <th> Password </th>
-                            <th> Role </th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($members as $item)
+                        @foreach ($categories as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->name }}</td>
-                                    <td>{{ $item->email }}</td>
-                                    <td>{{ $item->password }}</td>
                                     <td>
-                                        @if ($item->role == "admin")
-                                            <span>Admin</span>
-                                        @else
-                                            <span>Pemilik</span>
-                                        @endif
-                                    </td>
-                                    <td>
-                                        <a href="{{ route('admin.members.show', $item->id) }}" class="btn btn-outline-secondary btn-sm me-1">
+                                        <a href="{{ route('admin.categories.show', $item->id) }}" class="btn btn-outline-secondary btn-sm me-1">
                                             <span class="bi bi-eye">Show</span>
                                         </a>
-                                        <a href="{{ route('admin.members.edit', $item->id) }}" class="btn btn-secondary btn-sm me-1">
+                                        <a href="{{ route('admin.categories.edit', $item->id) }}" class="btn btn-secondary btn-sm me-1">
                                             <span class="bi bi-pencil">Edit</span>
                                         </a> 
-                                        <a href="#" class="btn btn-danger btn-sm me-1" onclick="handleDestroy(`{{ route ('admin.members.destroy', $item->id) }}`)">
+                                        <a href="#" class="btn btn-danger btn-sm me-1" onclick="handleDestroy(`{{ route ('admin.categories.destroy', $item->id) }}`)">
                                             <span class="bi bi-trash">Hapus</span>
                                         </a>
                                     </td>

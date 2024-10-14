@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Items;
+use App\Models\Categories;
 use App\Models\Peminjamans;
 use Illuminate\Http\Request;
 
@@ -19,18 +20,20 @@ class FormPeminjamanController extends Controller
     public function index()
     {
         $items = Items::all();
-        return view('pages.form', compact('items'));
+        $categories = Categories::all();
+        return view('pages.form', compact('items', 'categories'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'fullname' => 'required|min:5|max:128',
-            'institution_id' => 'required',
-            'from' => 'required|min:3|max:255',
-            'email' => 'required|email|max:64',
-            'phonenumber' => 'required|min:10|max:16',
-            'note' => 'required',
+            'items_id' =>'required',
+            'categories_id' =>'required',
+            'name' => 'required',
+            'kelas' => 'required',
+            'waktu_peminjaman' => 'required',
+            'waktu_kembali' => 'required',
+            'staus' => 'required',
         ]); 
 
         $peminjaman =Peminjamans ::create($request->all());

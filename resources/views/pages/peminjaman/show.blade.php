@@ -12,13 +12,6 @@
     <section class="section">
         <div class="card">
             <div class="card-body">
-                'item_id',
-        'name',
-        '',
-        '',
-        '',
-        '',
-        '', 
                     
                 <table class="table table-striped table-bordered"> 
                  <tr>
@@ -27,7 +20,15 @@
                 </tr>
                 <tr>
                     <td>Nama Item</td>
-                    <td>{{$peminjaman->item_id}}</td>
+                    <td>{{$peminjaman->items_id}}</td>
+                </tr>
+                <tr>
+                    <td>Nama Kategori</td>
+                    <td>{{$peminjaman->categories_id}}</td>
+                </tr>
+                <tr>
+                    <td>Nama </td>
+                    <td>{{$peminjaman->name}}</td>
                 </tr>
                 <tr>
                     <td>Kelas</td>
@@ -36,14 +37,6 @@
                 <tr>
                     <td>Waktu Pinjam</td>
                     <td>{{ $peminjaman->waktu_peminjaman }}</td>
-                </tr>
-                <tr>
-                    <td>Waktu Kembali</td>
-                    <td>{{ $peminjaman->waktu_kembali }}</td>
-                </tr>
-                <tr>
-                    <td>Total Pinjam</td>
-                    <td>{{ $peminjaman->total_pinjam }}</td>
                 </tr>
                 <tr>
                     <td>Status</td>

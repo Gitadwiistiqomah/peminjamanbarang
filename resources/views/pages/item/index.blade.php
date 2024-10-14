@@ -23,18 +23,15 @@
                             <th> No </th>
                             <th> Nama Barang </th>
                             <th> Lokasi </th>
-                            <th> Foto </th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($items as $item)
                         <tr>
-                        
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->namebarang }}</td>
                             <td>{{ $item->lokasi }}</td>
-                            <td><img src="{{ asset('storage/uploads/peminjamanbarang/' . $item->foto) }}" width="100" alt=""></td>
                             <td>
                                 <a href="{{ route('admin.items.show', $item->id) }}" class="btn btn-outline-secondary btn-sm me-1">
                                     <span class="bi bi-eye">Show</span>

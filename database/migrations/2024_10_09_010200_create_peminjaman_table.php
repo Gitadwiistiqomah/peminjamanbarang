@@ -13,12 +13,11 @@ return new class extends Migration
     {
         Schema::create('peminjaman', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('item_id')->references('id')->on('items')->onDelete('cascade');
+            $table->foreignId('items_id')->references('id')->on('items')->onDelete('cascade');
+            $table->foreignId('categories_id')->references('id')->on('categories')->onDelete('cascade');
             $table->string('name')->nullable();
             $table->string('kelas');
-            $table->string('waktu_peminjaman');
-            $table->string('waktu_kembali');
-            $table->string('total_pinjam');
+            $table->dateTime('waktu_peminjaman');
             $table->enum('status', ['Belum Dikembalikan', 'Sudah Dikembalikan'])->nullable();
             $table->timestamps();
         });

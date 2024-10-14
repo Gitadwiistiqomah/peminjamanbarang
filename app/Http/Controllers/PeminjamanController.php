@@ -16,7 +16,7 @@ class PeminjamanController extends Controller
     public function show($id)
     {
         $peminjaman = Peminjamans::find($id);
-        return view('pages.peminjaman.show', compact('guests'));
+        return view('pages.peminjaman.show', compact('peminjaman'));
     }
 
     public function destroy($id)
