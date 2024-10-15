@@ -11,7 +11,7 @@ class Items extends Model
 
     protected $table = "items";
     protected  $fillable = [
-        'namebarang',
+        'name',
         'lokasi',
     ];
 

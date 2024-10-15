@@ -20,7 +20,7 @@
                 </tr>
                 <tr>
                     <td>Nama Barang </td>
-                    <td>{{ $items->namebarang }}</td>
+                    <td>{{ $items->name }}</td>
                 </tr>
                 <tr>
                     <td>Lokasi</td>

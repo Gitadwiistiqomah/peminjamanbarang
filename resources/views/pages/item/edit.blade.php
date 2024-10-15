@@ -26,10 +26,10 @@
                     </div> --}}
 
                     <div class="form-group mb-2">
-                        <label for="namebarang" class="form-lable"> Nama Barang <span class="text-danger">*</span></label>
-                        <input type="text" name="namebarang" id="namebarang" value="{{ $items->namebarang }}" class="form-control @error('namebarang') is-invalid  @enderror"/>
+                        <label for="name" class="form-lable"> Nama Barang <span class="text-danger">*</span></label>
+                        <input type="text" name="name" id="name" value="{{ $items->name }}" class="form-control @error('name') is-invalid  @enderror"/>
     
-                        @error('namebarang') 
+                        @error('name') 
                             <div class="invalid-feedback d-block">{{ $message }}</div>
                         @enderror
                     </div>

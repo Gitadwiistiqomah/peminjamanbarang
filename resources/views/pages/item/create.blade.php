@@ -16,10 +16,10 @@
                     @csrf
 
                 <div class="form-group mb-2">
-                    <label for="namebarang" class="form-lable"> Nama Barang <span class="text-danger">*</span></label>
-                    <input type="text" name="namebarang" id="namebarang" value="{{ old('namebarang') }}" class="form-control @error('namebarang') is-invalid  @enderror" />
+                    <label for="name" class="form-lable"> Nama Barang <span class="text-danger">*</span></label>
+                    <input type="text" name="name" id="name" value="{{ old('name') }}" class="form-control @error('name') is-invalid  @enderror" />
     
-                    @error('namebarang') 
+                    @error('name') 
                         <div class="invalid-feedback d-block">{{ $message }}</div>
                     @enderror
                 </div>

@@ -9,26 +9,26 @@ class Peminjamans extends Model
 {
     use HasFactory;
     
-    protected $table = 'peminjaman';
+    // protected $table = 'peminjaman';
     protected  $fillable = [
-        'items_id',
-        'categories_id',
         'name',
         'kelas',
+        'items_id',
+        'categories_id',
         'waktu_peminjaman',
-        'waktu_kembali',
         'status', 
      ];
 
-    public function items()
-    {
-        return $this->belongsTo(Items::class);
-    }
-
-    public function categories()
-    {
-        return $this->belongsTo(Categories::class);
-    }
+     public function items()
+     {
+         return $this->belongsTo(Items::class, 'items_id'); // Menunjukkan relasi ke model Item
+     }
+ 
+     // Fungsi untuk relasi dengan model Category
+     public function categories()
+     {
+         return $this->belongsTo(Categories::class, 'categories_id'); // Menunjukkan relasi ke model Category
+     }
 
 
 }

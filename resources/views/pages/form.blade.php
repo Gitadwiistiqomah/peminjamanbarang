@@ -32,11 +32,30 @@
 
                         <form action="{{ route('form.store')}}" method="POST">
                             @csrf
+
+                            <div class="form-group mb-3">
+                                <label for="name"> Nama Peminjam </label>
+                                    <input type="text" name="name" id="name" value="{{ old('name')}}" class="form-control @error('name') is-invalid @enderror"/>
+                                
+                                @error('name')
+                                        <div class="invalid-feedback d-block">{{ $message}}</div>
+                                @enderror
+                            </div>
+                       
+                        
+                            <div class="form-group mb-3">
+                                <label for="kelas">Kelas</label>
+                                <input type="text" name="kelas" id="kelas"  value="{{ old('kelas')}}" class="form-control @error('kelas') is-invalid @enderror"/>
+                                
+                                @error('kelas')
+                                    <div class="invalid-feedback d-block">{{ $message}}</div>
+                                @enderror
+                            </div>
                             
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group mb-3">
-                                        <label for="items_id"> Nama Item </label>
+                                        <label for="items_id"> Nama Items </label>
                                             <select name="items_id" class="form-select @error('items_id') is-invalid @enderror">
                                                 @foreach($items as $item)
                                                     <option value="{{ $item->id}}" @if (old('items_id') ==$item->id) selected @endif> {{ $item->name }}</option>
@@ -66,27 +85,6 @@
                             </div>    
                             
                            
-                                    <div class="form-group mb-3">
-                                        <label for="name">Nama Peminjam</label>
-                                            <input type="text" name="name" id="name"  value="{{ old('name')}}" class="form-control @error('name') is-invalid @enderror"/>
-                                        
-                                        @error('name')
-                                                <div class="invalid-feedback d-block">{{ $message}}</div>
-                                        @enderror
-                                    </div>
-                               
-                                
-                                    <div class="form-group mb-3">
-                                        <label for="kelas">Kelas</label>
-                                        <input type="text" name="kelas" id="kelas"  value="{{ old('kelas')}}" class="form-control @error('kelas') is-invalid @enderror"/>
-                                        
-                                        @error('kelas')
-                                            <div class="invalid-feedback d-block">{{ $message}}</div>
-                                        @enderror
-                                    </div>
-                            
-                           
-
                                 <div class="form-group mb-3">
                                     <label for="waktu_peminjaman">Waktu Peminjaman</label>
                                     <input type="datetime-local" name="waktu_peminjaman" id="waktu_peminjaman"  value="{{ old('waktu_peminjaman')}}" class="form-control @error('waktu_peminjaman') is-invalid @enderror"/>
@@ -95,20 +93,17 @@
                                         <div class="invalid-feedback d-block">{{ $message}}</div>
                                     @enderror
                                 </div>
-                                
-                                <div class="form-group mb-3">
-                                    <label for="waktu_kembali">Waktu Kembali</label>
-                                    <input type="datetime-local" name="waktu_kembali" id="waktu_kembali"  value="{{ old('waktu_kembali')}}" class="form-control @error('waktu_kembali') is-invalid @enderror"/>
-                                    
-                                    @error('waktu_kembali')
-                                        <div class="invalid-feedback d-block">{{ $message}}</div>
-                                    @enderror
-                                </div>
 
                                 <div class="form-group mb-3">
-                                    <label for="status"> Status </label>
-                                    <input type="text" name="status" id="status"  value="{{ old('status')}}" class="form-control @error('status') is-invalid @enderror"/>
-                                    
+                                    <label for="status"> Status </label> 
+                                    <div class="form-check mb-2">  
+                                        <input type="radio" name="status" id="Belum Dikembalikan" value="Belum Dikembalikan" value="{{ old('status') }}" class="form-check-input @error('status') is-invalid  @enderror"/>
+                                        <label for="Belum Dikembalikan" class="form-check-label"> Belum Dikembalikan </label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input type="radio" name="status" id="Sudah Dikembalikan" value="Sudah Dikembalikan" value="{{ old('status') }}" class="form-check-input @error('status') is-invalid  @enderror"/>
+                                        <label for="Sudah Dikembalikan" class="form-check-label"> Sudah Dikembalikan </label>
+                        
                                     @error('status')
                                         <div class="invalid-feedback d-block">{{ $message}}</div>
                                     @enderror

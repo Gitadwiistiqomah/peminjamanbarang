@@ -1,12 +1,14 @@
 <?php
 
 use App\Http\Controllers\FormPeminjamanController;
+use App\Http\Controllers\FormPeminjamansController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', [FormPeminjamanController::class, 'index'])->name('form.index');
-Route::post('/', [FormPeminjamanController::class, 'store'])->name('form.store');
+Route::get('/', [FormPeminjamansController::class, 'index'])->name('form.index');
+Route::post('/', [FormPeminjamansController::class, 'store'])->name('form.store');
+
 
 Auth::routes([
     'register' => false,
@@ -42,7 +44,7 @@ Route::put ('/items/{id}', [App\Http\Controllers\ItemsController::class, 'update
 Route::delete ('/items/{id}', [App\Http\Controllers\ItemsController::class, 'destroy'])->name('items.destroy') ;
 Route::get ('/items/{id}', [App\Http\Controllers\ItemsController::class, 'show'])->name('items.show') ;
 
-Route::resource('/peminjaman', App\Http\Controllers\PeminjamanController::class)->only(['index', 'show', 'destroy']);
+Route::resource('/peminjaman', App\Http\Controllers\PeminjamansController::class)->only(['index', 'show', 'destroy']);
 
 });
 

@@ -16,10 +16,10 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama Item</th>
-                            <th>Nama Kategori</th>
                             <th>Name</th>
                             <th>Kelas</th>
+                            <th>Nama Item</th>
+                            <th>Nama Kategori</th>
                             <th>Waktu Pinjam</th>
                             <th>Actions</th>
                         </tr>
@@ -28,10 +28,10 @@
                         @foreach ($peminjaman as $item)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $item->items_id }}</td>
-                            <td>{{ $item->categories_id }}</td>
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->kelas }}</td>
+                            <td>{{ $item->items->name }}</td>
+                            <td>{{ $item->categories->name}}</td>
                             <td>{{ Carbon\carbon::parse($item->waktu_peminjaman)->isoFormat('DD MMMM Y') }}</td>
                             <td>
                                 <a href="{{ route('admin.peminjaman.show', $item->id) }}" class="btn btn-outline-secondary btn-sm me-1">

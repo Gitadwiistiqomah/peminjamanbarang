@@ -30,7 +30,7 @@
                         @foreach ($items as $item)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $item->namebarang }}</td>
+                            <td>{{ $item->name }}</td>
                             <td>{{ $item->lokasi }}</td>
                             <td>
                                 <a href="{{ route('admin.items.show', $item->id) }}" class="btn btn-outline-secondary btn-sm me-1">

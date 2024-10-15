@@ -27,37 +27,12 @@ class ItemsController extends Controller
      */
     public function store(Request $request)
     {
-
-        // $request->validate([
-        //     'namebarang' => 'required',
-        //     'lokasi'=> 'required',
-        //     // 'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        //     // 'foto' => 'required|mimes:jpeg,png,jpg,gif,svg|max:6048',
-           
-        // ], [
-        //     'namebarang.required' => 'namebarang harus diisi.',
-        //     'lokasi.required' => 'lokasi harus diisi', 
-        // ]);
-
-        // $imageName = time(). '.' .$request->foto->extension();
-        // Storage::putFileAs(
-        //     'public/uploads/peminjamanbarang', 
-        //     $request->foto, 
-        //     $imageName
-        // );
-        // $items = Items::create([
-        //     'namebarang'=> $request->namebarang,
-        //     'lokasi'=> $request->lokasi,
-        //     'foto'=> $imageName,
-            
-        // ]);
-
-        // return redirect()->route('admin.items.index');
+        
          $request->validate([
-             'namebarang' => 'required',
+             'name' => 'required',
              'lokasi'=> 'required',
         ], [
-             'namebarang.required' => 'namebarang harus diisi.',
+             'name.required' => 'name harus diisi.',
              'lokasi.required' => 'lokasi harus diisi',  
          ]);
 
@@ -74,7 +49,7 @@ class ItemsController extends Controller
     public function show(string $id)
     {
 
-         $items = Items::find($id); //SELECT * FROM siswa Where id = $id
+         $items = Items::find($id); 
          return view('pages.item.show', compact ('items'));
     }
 
@@ -92,34 +67,6 @@ class ItemsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-
-        // $request->validate([
-        //     'namebarang' => 'required',
-        //     'lokasi'=> 'required',
-        //     'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        //     // 'foto' => 'required|mimes:jpeg,png,jpg,gif,svg|max:6048',
-        // ]);
-
-        // $items = Items::find($id);
-
-        // if($request->has('foto')){
-        //     //upload Cover
-        //     $imageName = time(). '.' .$request->foto->extension();
-        //     Storage::putFileAs(
-        //         'public/uploads/peminjamanbarang', //lokasi upload file
-        //         $request->foto, //input file dari form
-        //         $imageName
-        //     );
-
-        // }else{
-        //     $imageName = $items->foto;
-        // }
-
-        // $items->namebarang = $request->namebarang;
-        // $items->lokasi = $request->lokasi;
-        // $items->foto = $imageName;
-        // $items->save();
-        // return redirect()->route('admin.items.index');
         
          $request->validate([
              'name' => 'required|max:128',

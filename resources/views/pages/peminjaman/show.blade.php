@@ -19,20 +19,20 @@
                     <td>{{ $peminjaman->id }}</td>
                 </tr>
                 <tr>
-                    <td>Nama Item</td>
-                    <td>{{$peminjaman->items_id}}</td>
-                </tr>
-                <tr>
-                    <td>Nama Kategori</td>
-                    <td>{{$peminjaman->categories_id}}</td>
-                </tr>
-                <tr>
                     <td>Nama </td>
                     <td>{{$peminjaman->name}}</td>
                 </tr>
                 <tr>
                     <td>Kelas</td>
                     <td>{{ $peminjaman->kelas }}</td>
+                </tr>
+                <tr>
+                    <td>Nama Item</td>
+                    <td>{{$peminjaman->items_id}}</td>
+                </tr>
+                <tr>
+                    <td>Nama Kategori</td>
+                    <td>{{$peminjaman->categories_id}}</td>
                 </tr>
                 <tr>
                     <td>Waktu Pinjam</td>
