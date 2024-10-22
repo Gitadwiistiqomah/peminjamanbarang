@@ -15,7 +15,7 @@
                     
                 <table class="table table-striped table-bordered"> 
                 <tr>
-                    <th>Id</th> 
+                    <th>ID</th> 
                     <td><strong>#{{ $items->id }}</strong></td>
                 </tr>
                 <tr>

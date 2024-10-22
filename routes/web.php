@@ -44,7 +44,10 @@ Route::put ('/items/{id}', [App\Http\Controllers\ItemsController::class, 'update
 Route::delete ('/items/{id}', [App\Http\Controllers\ItemsController::class, 'destroy'])->name('items.destroy') ;
 Route::get ('/items/{id}', [App\Http\Controllers\ItemsController::class, 'show'])->name('items.show') ;
 
-Route::resource('/peminjaman', App\Http\Controllers\PeminjamansController::class)->only(['index', 'show', 'destroy']);
+// Route::resource('/peminjamans', App\Http\Controllers\PeminjamansController::class)->only(['index', 'show', 'destroy']);
 
+Route::get ('/peminjamans', [App\Http\Controllers\PeminjamansController::class, 'index'])->name('peminjamans.index') ;
+Route::delete ('/peminjamans/{id}', [App\Http\Controllers\PeminjamansController::class, 'destroy'])->name('peminjamans.destroy') ;
+Route::get ('/peminjamans/{id}', [App\Http\Controllers\PeminjamansController::class, 'show'])->name('peminjamans.show') ;
 });
 

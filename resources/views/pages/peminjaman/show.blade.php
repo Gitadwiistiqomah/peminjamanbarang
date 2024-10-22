@@ -14,9 +14,9 @@
             <div class="card-body">
                     
                 <table class="table table-striped table-bordered"> 
-                 <tr>
-                    <td>ID</td>
-                    <td>{{ $peminjaman->id }}</td>
+                <tr>
+                    <th>ID</th>
+                    <td><strong>#{{$peminjaman->id}}</strong></td>
                 </tr>
                 <tr>
                     <td>Nama </td>
@@ -52,7 +52,7 @@
                 </tr>
 
                 <td>
-                <a href="{{ route('admin.peminjaman.index')}}" class="btn btn-sm btn-primary mb-2">
+                <a href="{{ route('admin.peminjamans.index')}}" class="btn btn-sm btn-primary mb-2">
                     <span class="bi bi-arrow-left"></span>
                 Kembali</a>
                 </td>

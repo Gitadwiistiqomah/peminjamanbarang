@@ -30,19 +30,19 @@ class FormPeminjamansController extends Controller
     ]);
 
     // Simpan data
-    $peminjamans = new Peminjamans(); // Gantilah ini dengan model yang sesuai
-    $peminjamans->items_id = $request->items_id;
-    $peminjamans->categories_id = $request->categories_id ;
-    $peminjamans->name = $request->name;
-    $peminjamans->kelas = $request->kelas;
-    $peminjamans->waktu_peminjaman = $request->waktu_peminjaman;
-    $peminjamans->status = $request->status;
+    $peminjaman = new Peminjamans (); // Gantilah ini dengan model yang sesuai
+    $peminjaman->items_id = $request->items_id;
+    $peminjaman->categories_id = $request->categories_id ;
+    $peminjaman->name = $request->name;
+    $peminjaman->kelas = $request->kelas;
+    $peminjaman->waktu_peminjaman = $request->waktu_peminjaman;
+    $peminjaman->status = $request->status;
 
     // Simpan ke database
-    $peminjamans->save();
+    $peminjaman->save();
 
     // Redirect dengan pesan sukses
-    return redirect()->route('form.index')->with('success', 'Data berhasil disimpan.');
+    return redirect()->route('form.index')->with('success', 'Data peminjaman berhasil disimpan.');
 }
 
 }

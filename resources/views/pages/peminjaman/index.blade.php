@@ -34,10 +34,10 @@
                             <td>{{ $item->categories->name}}</td>
                             <td>{{ Carbon\carbon::parse($item->waktu_peminjaman)->isoFormat('DD MMMM Y') }}</td>
                             <td>
-                                <a href="{{ route('admin.peminjaman.show', $item->id) }}" class="btn btn-outline-secondary btn-sm me-1">
+                                <a href="{{ route('admin.peminjamans.show', $item->id) }}" class="btn btn-outline-secondary btn-sm me-1">
                                     <span class="bi bi-eye">Show</span>
                                 </a>
-                                <a href="#" class="btn btn-danger btn-sm me-1" onclick="handleDestroy(`{{ route ('admin.peminjaman.destroy', $item->id) }}`)">
+                                <a href="#" class="btn btn-danger btn-sm me-1" onclick="handleDestroy(`{{ route ('admin.peminjamans.destroy', $item->id) }}`)">
                                     <span class="bi bi-trash">Hapus</span>
                                 </a>
                             </td>

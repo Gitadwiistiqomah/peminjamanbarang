@@ -15,6 +15,10 @@
                     
                 <table class="table table-striped table-bordered"> 
                 <tr>
+                    <th>ID</th>
+                    <td><strong>#{{$categories->id}}</strong></td>
+                </tr>
+                <tr>
                     <th>Name</th> 
                     <td><strong>#{{ $categories->name }}</strong></td>
                 </tr>

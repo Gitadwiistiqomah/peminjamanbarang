@@ -39,7 +39,7 @@
 
     <li
         class="sidebar-item  ">
-        <a href="{{ route('admin.peminjaman.index') }}" class='sidebar-link'>
+        <a href="{{ route('admin.peminjamans.index') }}" class='sidebar-link'>
             <i class="bi bi-building"></i>
             <span>Peminjaman</span>
         </a>

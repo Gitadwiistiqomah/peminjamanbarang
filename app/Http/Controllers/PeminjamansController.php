@@ -2,36 +2,33 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Items;
+use App\Models\Categories;
 use App\Models\Peminjamans;
 use Illuminate\Http\Request;
 
 class PeminjamansController extends Controller
 {
+    
     public function index()
     {
-    $peminjaman = Peminjamans::with(['items', 'categories'])->get(); // pastikan 'item' dan 'category' adalah relasi yang benar
-    return view('pages.peminjaman.index', compact('peminjaman'));
-}
+        $peminjaman = Peminjamans::with(['items', 'categories'])->get();// Eager loading untuk relasi
+            // ->orderBy('created_at', 'DESC') // Jika ingin mengurutkan
+            // ->get(); // Eksekusi query untuk mendapatkan data
 
-        // $peminjaman = Peminjamans::orderBy('created_at', 'DESC')->get();
-        // return view ('pages.peminjaman.index', compact('peminjaman'));
-    
+        return view('pages.peminjaman.index', compact('peminjaman')); // Mengembalikan view dengan data peminjaman
+    }
 
     public function show($id)
     {
-
         $peminjaman = Peminjamans::with('items', 'categories')->findOrFail($id);
         return view('pages.peminjaman.show', compact('peminjaman'));
-
-        // $peminjaman = Peminjamans::find($id);
-        // return view ('pages.peminjaman.show', compact('peminjaman'));
     }
 
     public function destroy($id)
     {
         $peminjaman = Peminjamans::find($id);
         $peminjaman->delete();
-        return redirect()->route ('admin.peminjaman.index');
+        return redirect()->route('admin.peminjamans.index');
     }
 }
-

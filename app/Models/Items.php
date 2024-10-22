@@ -14,9 +14,6 @@ class Items extends Model
         'name',
         'lokasi',
     ];
-
-    // public function members()
-    // {
-    //     return $this->belongsTo(Members::class);
-    // }
+   
+    
 }
