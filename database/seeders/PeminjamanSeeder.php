@@ -15,8 +15,6 @@ class PeminjamanSeeder extends Seeder
     public function run(): void
     {
 
-        // Items::create(['namebarang' =>'Bola Basket']);
-        // Items::create(['namebarang' =>'Raket']);
-        // Items::create(['namebarang' =>'Gitar']);
+    
     }
 }

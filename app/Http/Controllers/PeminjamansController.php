@@ -12,10 +12,8 @@ class PeminjamansController extends Controller
     
     public function index()
     {
-        $peminjaman = Peminjamans::with(['items', 'categories'])->get();// Eager loading untuk relasi
-            // ->orderBy('created_at', 'DESC') // Jika ingin mengurutkan
-            // ->get(); // Eksekusi query untuk mendapatkan data
-
+        $peminjaman = Peminjamans::with(['items', 'categories'])->get();
+        
         return view('pages.peminjaman.index', compact('peminjaman')); // Mengembalikan view dengan data peminjaman
     }
 

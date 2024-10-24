@@ -28,11 +28,11 @@
                 </tr>
                 <tr>
                     <td>Nama Item</td>
-                    <td>{{$peminjaman->items_id}}</td>
+                    <td>{{$peminjaman->items->name}}</td>
                 </tr>
                 <tr>
                     <td>Nama Kategori</td>
-                    <td>{{$peminjaman->categories_id}}</td>
+                    <td>{{$peminjaman->categories->name}}</td>
                 </tr>
                 <tr>
                     <td>Waktu Pinjam</td>

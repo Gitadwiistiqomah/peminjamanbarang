@@ -44,7 +44,7 @@ class CategoriesController extends Controller
      */
     public function show(string $id)
     {
-        $categories = Categories::find($id); //SELECT * FROM siswa Where id = $id
+        $categories = Categories::find($id); //SELECT * FROM categories Where id = $id
         return view('pages.categories.show', compact ('categories'));
     }
 

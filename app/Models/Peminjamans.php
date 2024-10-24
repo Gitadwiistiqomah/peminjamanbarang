@@ -29,16 +29,6 @@ class Peminjamans extends Model
          return $this->belongsTo(Categories::class);
      }
      
- 
-    //  public function items()
-    //  {
-    //      return $this->hasMany(Items::class);
-    //  }
-
-    //  public function categories()
-    //  {
-    //      return $this->belongsTo(Categories::class);
-    //  }
 }
 
 
